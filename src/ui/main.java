@@ -1,5 +1,9 @@
 package ui;
 
+import java.util.ArrayList;
+import java.util.Hashtable;
+import java.util.LinkedList;
+import java.util.Queue;
 import java.util.Scanner;
 
 import Exception.*;
@@ -46,9 +50,23 @@ public class main {
 
 	}
 
-	public static void createEdifice(String id, int numUser,int numFloor,int numOffice,String[] users ) {
+	public static void createEdifice(String id, int numUser,int numFloors,int numOffice,String[] users) {
+		Hashtable office=new Hashtable();
+		Queue<Integer> cola=new LinkedList();
+		ArrayList<Integer> flat = new ArrayList<Integer>();
+		
+		int x=numFloors;
+		
+		while(numFloors==x) {
+			
+			flat.add(numFloors);
+			
+		}
+		
+		Edifice x=new Edifice(id, null, null,cola);
 
-		Edifice x=new Edifice(id, null, null);
+		office.put(null, null);
+
 	}
 
 }
