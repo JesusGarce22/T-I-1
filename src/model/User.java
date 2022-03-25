@@ -5,11 +5,13 @@ public class User<T> {
 	private T name;
 	private Office destination;
 	private T itIsNow;
+	private Edifice now;
 	
-	public User(T name, Office destination, T itIsNow) {
+	public User(T name, Office destination, T itIsNow, Edifice n) {
 		this.name = name;
 		this.destination = destination;
 		this.itIsNow = itIsNow;
+		now=n;
 	}
 
 	public T getName() {
@@ -39,4 +41,14 @@ public class User<T> {
 	public void printMessage() {
 		System.out.println(name+" moves to the office "+destination.getId());
 	}
+
+	public Edifice getNow() {
+		return now;
+	}
+
+	public void setNow(Edifice now) {
+		this.now = now;
+	}
+	
+	
 }

@@ -1,5 +1,6 @@
 package model;
 
+import java.util.Hashtable;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Stack;
@@ -7,11 +8,11 @@ import java.util.Stack;
 public class Edifice<T> {
 
 	private T id;
-	private Office office;
+	private Hashtable office;
 	private Stack<T> elevator;
 	private Queue<T> floors;
 	
-	public Edifice(T id, Office office, Stack<T> elevator,Queue<T> floors) {
+	public Edifice(T id, Hashtable office, Stack<T> elevator,Queue<T> floors) {
 		this.id = id;
 		this.office = office;
 		this.elevator = elevator;
@@ -26,11 +27,11 @@ public class Edifice<T> {
 		this.id = id;
 	}
 
-	public Office getOffice() {
+	public Hashtable getOffice() {
 		return office;
 	}
 
-	public void setOffice(Office office) {
+	public void setOffice(Hashtable office) {
 		this.office = office;
 	}
 

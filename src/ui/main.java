@@ -50,23 +50,26 @@ public class main {
 
 	}
 
+	
 	public static void createEdifice(String id, int numUser,int numFloors,int numOffice,String[] users) {
 		Hashtable office=new Hashtable();
 		Queue<Integer> cola=new LinkedList();
 		ArrayList<Integer> flat = new ArrayList<Integer>();
 		
-		int x=numFloors;
-		
-		while(numFloors==x) {
-			
-			flat.add(numFloors);
-			
+		for(int i=1;i<numFloors+1;i++) {
+			flat.add(i);
 		}
+			
+		cola.addAll(flat);
 		
-		Edifice x=new Edifice(id, null, null,cola);
+		//System.out.println(cola);
+		
 
-		office.put(null, null);
-
+		int contador = 0;
+		office.put(contador, new Office(1, null, true));
+		
+		
+		Edifice m=new Edifice(id, office, null,cola);
 	}
 
 }
