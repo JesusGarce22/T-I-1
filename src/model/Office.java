@@ -1,5 +1,7 @@
 package model;
 
+import java.util.Queue;
+
 public class Office<T> {
 
 	private T id;
@@ -35,6 +37,5 @@ public class Office<T> {
 	public void setStatus(T status) {
 		this.status = status;
 	}
-	
 	
 }

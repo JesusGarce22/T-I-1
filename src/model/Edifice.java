@@ -1,9 +1,11 @@
 package model;
 
+import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Stack;
+
 
 public class Edifice<T> {
 
@@ -51,5 +53,23 @@ public class Edifice<T> {
 		this.floors = floors;
 	}
 	
-	
+	public void printInfo() {
+		System.out.println(id);
+		System.out.println();
+		ArrayList<T> Discarded=new ArrayList();
+		for(int i=0;i<floors.size();i++) {
+			
+			Discarded.add(floors.poll());
+			Floor n=(Floor) Discarded.get(i);
+			System.out.println(n.getId());
+		}
+		
+		System.out.println();
+		
+		java.util.Enumeration e=office.keys();
+
+		while(e.hasMoreElements()) {
+			System.out.println(e.nextElement());
+		}
+	}
 }

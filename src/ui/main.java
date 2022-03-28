@@ -1,10 +1,6 @@
 package ui;
 
-import java.util.ArrayList;
-import java.util.Hashtable;
-import java.util.LinkedList;
-import java.util.Queue;
-import java.util.Scanner;
+import java.util.*;
 
 import Exception.*;
 import model.*;
@@ -50,26 +46,29 @@ public class main {
 
 	}
 
-	
+
 	public static void createEdifice(String id, int numUser,int numFloors,int numOffice,String[] users) {
 		Hashtable office=new Hashtable();
-		Queue<Integer> cola=new LinkedList();
-		ArrayList<Integer> flat = new ArrayList<Integer>();
+		Queue<Floor> cola=new LinkedList();
+		ArrayList<Floor> flat = new ArrayList<Floor>();
+
+		int totalOffice=numFloors*numOffice;
+
 		
-		for(int i=1;i<numFloors+1;i++) {
-			flat.add(i);
+
+		for(int i=1;i<totalOffice+1;i++) {
+			office.put(i, new Office(1, null, true));
 		}
-			
+
+		for(int i=1;i<=numFloors;i++) {
+			Floor n = new Floor(i,office);
+			flat.add(n);
+		}
+
 		cola.addAll(flat);
-		
-		//System.out.println(cola);
-		
-
-		int contador = 0;
-		office.put(contador, new Office(1, null, true));
-		
-		
+		System.out.println(cola.size());
 		Edifice m=new Edifice(id, office, null,cola);
+		
+		//m.printInfo();
 	}
-
 }
