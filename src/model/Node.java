@@ -2,21 +2,20 @@ package model;
 
 import java.util.ArrayList;
 import java.util.Hashtable;
-import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Stack;
 
+public class Node<T> {
 
-public class Edifice<T> {
-
+	private Node next;
+	private Node prev;
 	
 	private T id;
 	private Hashtable office;
 	private Stack<T> elevator;
 	private Queue<T> floors;
 	
-	
-	public Edifice(T id, Hashtable office, Stack<T> elevator,Queue<T> floors) {
+	public Node(T id, Hashtable office, Stack<T> elevator,Queue<T> floors) {
 		this.id = id;
 		this.office = office;
 		this.elevator = elevator;
@@ -74,4 +73,18 @@ public class Edifice<T> {
 			System.out.println(e.nextElement());
 		}
 	}
+	
+	public Node getNext() {
+		return next;
+	}
+	public void setNext(Node next) {
+		this.next = next;
+	}
+	public Node getPrev() {
+		return prev;
+	}
+	public void setPrev(Node prev) {
+		this.prev = prev;
+	}
+		
 }

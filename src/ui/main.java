@@ -8,7 +8,9 @@ import model.*;
 public class main {
 
 	public static Scanner sn=new Scanner(System.in);
+	public static Controller xx=new Controller();
 
+	
 	public static void main(String[] args) throws WrongEntriesException{
 
 		System.out.println("Please enter the information for star the program");
@@ -38,7 +40,7 @@ public class main {
 					contador++;
 				}
 
-				createEdifice( idEdifice,  numUser, numFloors, numOfficeForFloor,user);
+				xx.star( idEdifice,  numUser, numFloors, numOfficeForFloor,user);
 				//System.out.println(idEdifice+numUser+numFloors+numOfficeForFloor);
 			}
 		}
@@ -46,29 +48,4 @@ public class main {
 
 	}
 
-
-	public static void createEdifice(String id, int numUser,int numFloors,int numOffice,String[] users) {
-		Hashtable office=new Hashtable();
-		Queue<Floor> cola=new LinkedList();
-		ArrayList<Floor> flat = new ArrayList<Floor>();
-
-		int totalOffice=numFloors*numOffice;
-
-		
-
-		for(int i=1;i<totalOffice+1;i++) {
-			office.put(i, new Office(1, null, true));
-		}
-
-		for(int i=1;i<=numFloors;i++) {
-			Floor n = new Floor(i,office);
-			flat.add(n);
-		}
-
-		cola.addAll(flat);
-		System.out.println(cola.size());
-		Edifice m=new Edifice(id, office, null,cola);
-		
-		//m.printInfo();
-	}
 }
