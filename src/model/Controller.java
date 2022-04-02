@@ -18,7 +18,7 @@ public class Controller<T> {
 		int totalOffice=numFloors*numOffice;
 		int aux=numFloors;
 		int now=0; // piso donde se encuentra el usuario
-		User p=new User(null,null,null,null);
+		User p = null;
 
 		for(int i=1;i<totalOffice+1;i++) {
 			office.put(i, new Office(1, null, true));
