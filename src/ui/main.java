@@ -11,7 +11,7 @@ public class main {
 	public static Controller xx=new Controller();
 
 	
-	public static void main(String[] args) throws WrongEntriesException{
+	public static void main(String[] args) throws WrongEntriesException,UserInvalideteEntraisException{
 
 		System.out.println("Please enter the information for star the program");
 		int cant=sn.nextInt();
@@ -35,12 +35,12 @@ public class main {
 
 				while(numUser!=0) {
 					user[contador]=sn.nextLine();
-					//System.out.println(user[contador]);
+					
 					numUser--;
 					contador++;
 				}
 
-				xx.star( idEdifice,  numUser, numFloors, numOfficeForFloor,user);
+				xx.star( idEdifice,  numUser, numFloors, numOfficeForFloor,user); 
 				//System.out.println(idEdifice+numUser+numFloors+numOfficeForFloor);
 			}
 		}
