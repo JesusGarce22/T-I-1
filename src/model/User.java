@@ -1,12 +1,12 @@
 package model;
 
 public class User<T> {
-	
+
 	private T name;
 	private T destination;
 	private T itIsNow;
 	private Node now;
-	
+
 	public User(T name,T itIsNow, T destination, Node n) {
 		this.name = name;
 		this.destination = destination;
@@ -37,9 +37,12 @@ public class User<T> {
 	public void setItIsNow(T itIsNow) {
 		this.itIsNow = itIsNow;
 	}
-	
+
 	public void printMessage() {
-		System.out.println(name+" moves to the office "+destination+" and to floor "+ now.getId());
+		if(now!=null) {
+			System.out.println(name+" moves to the office "+destination+" and to floor "+ now.getId());
+
+		}
 	}
 
 	public 	Node getNow() {
@@ -49,6 +52,6 @@ public class User<T> {
 	public void setNow(Node now) {
 		this.now = now;
 	}
-	
-	
+
+
 }

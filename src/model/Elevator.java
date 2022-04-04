@@ -7,9 +7,9 @@ public class Elevator{
 	
 	private Stack<User> user;
 	private Office of;
-
+	ArrayList<User> aux = new ArrayList<User>();
 	
-	public Elevator(Stack<User> user) {
+	public Elevator() {
 		user = new Stack();	
 		
 	}
@@ -25,8 +25,6 @@ public class Elevator{
 	
 	public void moveToDestiny() {
 		
-		ArrayList<User> aux = new ArrayList<User>();
-		
 		for(int i=0; i<user.size(); i++) {
 			
 			User us = new User(null,null,null,null);
@@ -36,6 +34,17 @@ public class Elevator{
 		}
 		
 			
+	}
+
+	public void printMoves() {
+		for(int i=0;i<aux.size();i++) {
+			if(aux.get(i)!=null) {
+				System.out.println();aux.get(i).printMessage();
+			}
+			
+		}
+		
+		
 	}
 
 }

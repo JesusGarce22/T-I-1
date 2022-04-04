@@ -14,12 +14,14 @@ public class Node<T> {
 	private Hashtable office;
 	private Elevator elevator;
 	private Queue<T> floors;
+	private Queue<String> people;
 	
-	public Node(T id, Hashtable office, Elevator elevator,Queue<T> floors) {
+	public Node(T id, Hashtable office, Elevator elevator,Queue<T> floors,Queue<String> people) {
 		this.id = id;
 		this.office = office;
 		this.elevator = elevator;
 		this.floors = floors;
+		this.people = people;
 	}
 
 	public T getId() {
@@ -58,6 +60,8 @@ public class Node<T> {
 		System.out.println(id);
 		System.out.println();
 		ArrayList<T> Discarded=new ArrayList();
+		
+		System.out.println("Floors");
 		for(int i=0;i<floors.size();i++) {
 			
 			Discarded.add(floors.poll());
@@ -70,8 +74,14 @@ public class Node<T> {
 		java.util.Enumeration e=office.keys();
 
 		while(e.hasMoreElements()) {
+			System.out.println("Office");
 			System.out.println(e.nextElement());
 		}
+		
+		
+	}
+	public void statusFinish() {
+		System.out.println(people);
 	}
 	
 	public Node getNext() {

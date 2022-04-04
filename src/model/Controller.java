@@ -12,13 +12,15 @@ public class Controller<T> {
 
 	private Node first;
 	private Node last;
-	
-	private Elevator elevator;
-	
+
+	private Elevator elevator=new Elevator();
+
 	public void star(T id, T numUser,int numFloors,int numOffice,String[] users)throws UserInvalideteEntraisException{
 		Hashtable office=new Hashtable();
 		Queue<Floor> cola=new LinkedList();
 		ArrayList<Floor> flat = new ArrayList<Floor>();
+		Queue<String> colaUser=new LinkedList();
+		ArrayList<String> arrayUser = new ArrayList<>();
 
 		int totalOffice=numFloors*numOffice;
 		int aux=numFloors;
@@ -37,30 +39,39 @@ public class Controller<T> {
 		cola.addAll(flat);
 		//System.out.println(cola.size());
 		for(int i=0;i<users.length;i++) {
-			
+
 			String r=users[i];
 			String[] parts=r.split(" ");
-			
-			if(parts.length!=3 || Integer.parseInt(parts[1])!=0 || Integer.parseInt(parts[2])!=0) {
+
+			if(parts.length!=3 || Integer.parseInt(parts[1])<=0 || Integer.parseInt(parts[2])<=0) {
 				throw new UserInvalideteEntraisException();
 			}else {
-			String name=parts[0];
-			itIsNow=Integer.parseInt(parts[1]);
-			int destination=Integer.parseInt(parts[2]);
-			
-			p=new User(name,itIsNow,destination,null);
-			elevator.addUser(p);
+				String name=parts[0];
+				itIsNow=Integer.parseInt(parts[1]);
+				int destination=Integer.parseInt(parts[2]);
+
+				p=new User(name,itIsNow,destination,null);
+			   arrayUser.add(name);
+				elevator.moveToDestiny();
+				elevator.addUser(p);
 			}
 		}
 
-		Node m=new Node(id, office, null,cola);
+		colaUser.addAll(arrayUser);
+		Node m=new Node(id, office, elevator,cola,colaUser);
 		insertLast(m);
 		Node x=searchValue(id);
 		p.setNow(x);
-		
-		printList();
+
+		elevator.printMoves();
+		m.statusFinish();
 	}
-	
+	/*
+	 *  1
+ 		R 2 3 3
+		JESUS 2 1
+		CARLOS 1 3
+	 * **/
 	public void insertFirst(Node node) {
 		if(first == null) {
 			first = node;
@@ -72,7 +83,7 @@ public class Controller<T> {
 			first.setNext(second);
 		}
 	}
-	
+
 	public void insertLast(Node node) {
 		if(first == null) {
 			first = node;
@@ -88,16 +99,16 @@ public class Controller<T> {
 			System.out.println("Lista vacia");
 			return;
 		}
-		
+
 		Node current = first;
 		System.out.println(current.getId());
 		while(current.getNext() != null) {
 			current = current.getNext();
 			System.out.println(current.getId());
 		}
-	
+
 	}
-	
+
 	public Node searchValue(T id) {
 		Node current = first;
 		while(current.getNext() != null) {
@@ -108,7 +119,7 @@ public class Controller<T> {
 		}
 		return null;
 	}
-	
+
 	public Node getList() {
 		return first;
 	}
