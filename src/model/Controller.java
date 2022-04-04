@@ -13,6 +13,8 @@ public class Controller<T> {
 	private Node first;
 	private Node last;
 	
+	private Elevator elevator;
+	
 	public void star(T id, T numUser,int numFloors,int numOffice,String[] users)throws UserInvalideteEntraisException{
 		Hashtable office=new Hashtable();
 		Queue<Floor> cola=new LinkedList();
@@ -47,6 +49,7 @@ public class Controller<T> {
 			int destination=Integer.parseInt(parts[2]);
 			
 			p=new User(name,itIsNow,destination,null);
+			elevator.addUser(p);
 			}
 		}
 

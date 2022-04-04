@@ -12,10 +12,10 @@ public class Node<T> {
 	
 	private T id;
 	private Hashtable office;
-	private Stack<T> elevator;
+	private Elevator elevator;
 	private Queue<T> floors;
 	
-	public Node(T id, Hashtable office, Stack<T> elevator,Queue<T> floors) {
+	public Node(T id, Hashtable office, Elevator elevator,Queue<T> floors) {
 		this.id = id;
 		this.office = office;
 		this.elevator = elevator;
@@ -38,11 +38,11 @@ public class Node<T> {
 		this.office = office;
 	}
 
-	public Stack<T> getElevator() {
+	public Elevator getElevator() {
 		return elevator;
 	}
 
-	public void setElevator(Stack<T> elevator) {
+	public void setElevator(Elevator elevator) {
 		this.elevator = elevator;
 	}
 
