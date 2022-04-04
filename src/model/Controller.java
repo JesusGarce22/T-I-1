@@ -105,4 +105,8 @@ public class Controller<T> {
 		}
 		return null;
 	}
+	
+	public Node getList() {
+		return first;
+	}
 }
