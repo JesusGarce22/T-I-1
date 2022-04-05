@@ -6,12 +6,12 @@ public class Office<T> {
 
 	private T id;
 	private User user;
-	private T status;
+	private boolean status;
 	
-	public Office(T id, User user, T status) {
+	public Office(T id, User user) {
 		this.id = id;
 		this.user = user;
-		this.status = status;
+		this.status = true;
 	}
 
 	public T getId() {
@@ -30,11 +30,11 @@ public class Office<T> {
 		this.user = user;
 	}
 
-	public T getStatus() {
+	public boolean getStatus() {
 		return status;
 	}
 
-	public void setStatus(T status) {
+	public void setStatus(boolean status) {
 		this.status = status;
 	}
 	

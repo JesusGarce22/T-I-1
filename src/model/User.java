@@ -38,13 +38,6 @@ public class User<T> {
 		this.itIsNow = itIsNow;
 	}
 
-	public void printMessage() {
-		if(now!=null) {
-			System.out.println(name+" moves to the office "+destination+" and to floor "+ now.getId());
-
-		}
-	}
-
 	public 	Node getNow() {
 		return now;
 	}
@@ -52,6 +45,5 @@ public class User<T> {
 	public void setNow(Node now) {
 		this.now = now;
 	}
-
 
 }

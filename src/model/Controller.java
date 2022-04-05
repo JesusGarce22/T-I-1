@@ -28,10 +28,10 @@ public class Controller<T> {
 		User p = null;
 
 		for(int i=1;i<totalOffice+1;i++) {
-			office.put(i, new Office(1, null, true));
+			office.put(i, new Office(i, null));
 		}
 
-		for(int i=1;i<=numFloors;i++) {
+		for(int i=1;i<=numFloors+1;i++) {
 			Floor n = new Floor(i,office,null);
 			flat.add(n);
 		}
@@ -52,25 +52,28 @@ public class Controller<T> {
 
 				p=new User(name,itIsNow,destination,null);
 			   arrayUser.add(name);
-				elevator.moveToDestiny();
-				elevator.addUser(p);
+			   elevator.add(p);
+			   
+				
 			}
 		}
-
+		elevator.moveToDestiny(office);
 		colaUser.addAll(arrayUser);
 		Node m=new Node(id, office, elevator,cola,colaUser);
 		insertLast(m);
 		Node x=searchValue(id);
 		p.setNow(x);
 
-		elevator.printMoves();
 		m.statusFinish();
 	}
 	/*
-	 *  1
- 		R 2 3 3
-		JESUS 2 1
-		CARLOS 1 3
+	 * 
+1
+R 4 3 3
+JESUS 2 1
+CARLOS 1 3
+Jose 2 5
+Andres 1 4
 	 * **/
 	public void insertFirst(Node node) {
 		if(first == null) {
